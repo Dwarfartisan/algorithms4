@@ -26,7 +26,7 @@ func (l ListMap) Get(key types.Compare) interface{} {
 
 func (l *ListMap) Put(key types.Compare, value interface{}){
 	if l.first == nil {
-		l.first = &Node{key, value, nil}
+		l.first = &Node{Pair{key, value}, nil}
 		return
 	}
 	var node = l.first
@@ -42,7 +42,7 @@ func (l *ListMap) Put(key types.Compare, value interface{}){
 			}
 		}
 	}
-	node.Next = &Node{key, value, nil}
+	node.Next = &Node{Pair{key, value}, nil}
 }
 
 func (l *ListMap)Delete(key types.Compare) {
@@ -78,7 +78,7 @@ func (l ListMap)Contains(key types.Compare) bool {
 	}
 }
 
-func (l ListMap) isEmpty() bool {
+func (l ListMap) IsEmpty() bool {
 	return l.first == nil
 }
 

@@ -10,8 +10,12 @@ import (
 func main(){
 	flag.Parse()
 	var words = flag.Args()
-	var st = symtable.NewListMap()
-	FrequencyCounter(st, words)
+	fmt.Println("ListMap Sample:")
+	var listmap = symtable.NewListMap()
+	FrequencyCounter(listmap, words)
+	fmt.Println("Binary Search Map Sample:")
+	var bst = symtable.NewBsMap(16)
+	FrequencyCounter(bst, words)
 }
 
 func FrequencyCounter(st symtable.SymTable, words []string) {
